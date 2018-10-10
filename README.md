@@ -31,4 +31,4 @@ Preço: 3,99€
 ideias:
 Localizador de "hotspots" onde treinar/correr (usando mapas)
 checks semanais de diferenças de peso?-> se perder ganha tokens? ->tokens servem para avançar nos treinos, para manter uma especie de progresso.
-Quantos mais tokens uma pessoa tiver mais intensivos são os treinos recomendados mas com potencial de perder mais que os treinamentos antigos(nem que seja aumentar o numero de repeticoes dos Exercicios).
+Quantos mais tokens uma pessoa tiver mais intensivos são os treinos recomendados mas com potencial de perder mais que os treinamentos antigos(nem que seja aumentar o numero de repeticoes dos Exercicios)
