@@ -24,6 +24,11 @@ Público Alvo:
 Pessoas com excesso de peso
 
 Estudo da originalidade e indicação das mais-valias:
+Com esta aplicação pretendemos incentivar o nosso publico alvo a exercitar mais , para concretizar-mos isso decidimos fazer um jogo dentro da nossa aplicação em que incentiva o 
+utilizador a exercitar utilizando uma especie de moeda que os utilizadores podem ganhar por completar challenges no mundo real, esta moeda pode servir para comprar qualquer coisa no jogo.
+Para ajudar a motivação do utilizador a perder peso, tambem oferecemos um localizador de pontos de interesse para praticar os desafios ou treinar regularmente, tambem pretendemos em
+oferecer dicas para cada exercicio para ajudar ao utilizador a perceber como o exercicio deve ser feito para nao haver lesoes, oferecemos um calendario com planeamento do treino e de refeições
+para o utilizador ser o mais eficiente possivel a perder peso.
 
 
 Preço: 3,99€
