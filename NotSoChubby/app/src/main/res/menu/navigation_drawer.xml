@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:id="@+id/menu_applications" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_drawer_news"
+            android:icon="@drawable/vector_news"
+            android:title="@string/nav_news" />
+        <item
+            android:id="@+id/nav_drawer_exercise"
+            android:icon="@drawable/vector_exercise"
+            android:title="@string/nav_exercice" />
+        <item
+            android:id="@+id/nav_drawer_diet"
+            android:icon="@drawable/vector_diet"
+            android:title="@string/nav_diet" />
+        <item
+            android:id="@+id/nav_drawer_calendar"
+            android:icon="@drawable/vector_calendar"
+            android:title="@string/nav_calendar" />
+        <item
+            android:id="@+id/nav_drawer_map"
+            android:icon="@drawable/vector_map"
+            android:title="@string/nav_map" />
+        <item
+            android:id="@+id/nav_drawer_game"
+            android:icon="@drawable/vector_game"
+            android:title="@string/nav_game" />
+
+    </group>
+
+    <group android:id="@+id/menu_config" android:checkableBehavior="single" >
+        <item
+            android:id="@+id/nav_drawer_profile"
+            android:icon="@drawable/vector_profile"
+            android:title="@string/nav_profile" />
+        <item
+            android:id="@+id/nav_drawer_notifications"
+            android:icon="@drawable/vector_notifications"
+            android:title="@string/nav_notifications" />
+        <item
+            android:id="@+id/nav_drawer_config"
+            android:icon="@drawable/vector_config"
+            android:title="@string/nav_config" />
+    </group>
+</menu>

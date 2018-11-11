@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Not So Chubby</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_exercice">Treinos</string>
+    <string name="nav_diet">Dieta</string>
+    <string name="nav_calendar">Agenda</string>
+    <string name="nav_map">Mapa</string>
+    <string name="nav_game">Chubby Go Wild</string>
+    <string name="nav_news">Notícias</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nav_notifications">Notificações</string>
+    <string name="nav_config">Configurações</string>
+
 </resources>
