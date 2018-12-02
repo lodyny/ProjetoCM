@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/diet_breakfast" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="66dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textViewsubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewTitle"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="79dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textViewTitle"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="106dp"
+        android:text="TextView" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="108dp"
+        android:layout_height="81dp"
+        android:layout_alignTop="@+id/textViewsubtitle"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="22dp" />
+</android.widget.RelativeLayout>

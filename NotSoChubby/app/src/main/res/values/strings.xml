@@ -11,5 +11,11 @@
     <string name="nav_profile">Perfil</string>
     <string name="nav_notifications">Notificações</string>
     <string name="nav_config">Configurações</string>
-
+    <string name="diet_generate">Gerar</string>
+    <string name="diet_breakfast">Pequeno-Almoco</string>
+    <string name="diet_brunch">Lanche da Manha</string>
+    <string name="diet_lunch">Almoco</string>
+    <string name="diet_afterLunch">Lanche</string>
+    <string name="diet_dinner">Jantar</string>
+    <string name="diet_supper">Ceia</string>
 </resources>

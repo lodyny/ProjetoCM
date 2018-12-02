@@ -4,13 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import java.lang.reflect.Array;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -19,11 +26,25 @@ public class MainActivity extends AppCompatActivity {
             = new NavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem menuItem) {
+            Fragment fragment = null;
             menuItem.setChecked(true);
+            switch (menuItem.getItemId()){
+                case R.id.nav_drawer_diet:
+                    ActionBar actionbar = getSupportActionBar();
+                    actionbar.setTitle(R.string.nav_diet);
+                    fragment = new GestorCaloriasFragment();
+            }
+            if (fragment !=null){
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.replace(R.id.fragment_container,fragment);
+                ft.commit();
+            }
             mDrawerLayout.closeDrawers();
             return true;
         }
     };
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnBottomNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -59,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.vector_drawer_menu);
+        actionbar.setTitle(R.string.nav_news);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnBottomNavigationItemSelectedListener);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
