@@ -32,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.nav_drawer_diet:
                     ActionBar actionbar = getSupportActionBar();
                     actionbar.setTitle(R.string.nav_diet);
-                    fragment = new GestorCaloriasFragment();
+                    fragment = new GestorCaloriasFragment();break;
+                case R.id.nav_drawer_exercise:
+                    ActionBar actionBar = getSupportActionBar();
+                    actionBar.setTitle(R.string.nav_exercice);
+                    fragment = new GestorExercicioFragment();
             }
             if (fragment !=null){
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -50,9 +54,16 @@ public class MainActivity extends AppCompatActivity {
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_exercise:
-                    //mudança fragmento exercise
+                    ActionBar actionBar = getSupportActionBar();
+                    actionBar.setTitle(R.string.nav_exercice);
+                    fragment = new GestorExercicioFragment();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.fragment_container,fragment);
+                    ft.commit();
                     return true;
                 case R.id.navigation_diet:
                     //mudança fragmento diet
