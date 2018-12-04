@@ -1,5 +1,6 @@
 package com.chubby.notsochubby;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,7 +11,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
+
+import com.chubby.game.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -43,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     //mudança fragmento map
                     return true;
                 case R.id.navigation_game:
-                    //mudança fragmento game
+                    Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                    startActivity(intent);
                     return true;
             }
             return false;
