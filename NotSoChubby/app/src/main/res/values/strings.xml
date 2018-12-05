@@ -11,8 +11,17 @@
     <string name="nav_profile">Perfil</string>
     <string name="nav_notifications">Notificações</string>
     <string name="nav_config">Configurações</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="generate">Gerar</string>
+    <string name="diet_breakfast">Pequeno-Almoco</string>
+    <string name="diet_brunch">Lanche da Manha</string>
+    <string name="diet_lunch">Almoco</string>
+    <string name="diet_afterLunch">Lanche</string>
+    <string name="diet_dinner">Jantar</string>
+    <string name="diet_supper">Ceia</string>
+    <string name="exercise_abdominal">Abdominais</string>
+    <string name="exercise_back">Costas</string>
+    <string name="exercise_biceps">Biceps</string>
+    <string name="exercise_chest">Peito</string>
+    <string name="exercise_shoulder">Ombros</string>
+    <string name="exercise_triceps">Triceps</string>
 </resources>
