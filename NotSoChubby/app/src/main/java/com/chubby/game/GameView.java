@@ -15,6 +15,7 @@ import android.view.View;
 import com.chubby.notsochubby.R;
 
 public class GameView extends View {
+    private Context context;
     private int canvasWidth, canvasHeight;
     private boolean touch = false;
     private boolean jumping = false;
@@ -23,11 +24,10 @@ public class GameView extends View {
     private Paint score = new Paint();
 
     private Bitmap dog[] = new Bitmap[2];
-    private int dogX = 10;
-    private int dogY;
-    private int dogJump;
-    private int birdX, birdY, birdSpeed = 30;
+    private int dogX = 10, dogY, dogJump, minDogY, maxDogY;
+
     private Bitmap bird;
+    private int birdX, birdY, birdSpeed = 30;
 
     private Bitmap bottomBackground;
     private Bitmap topBackground;
@@ -42,7 +42,7 @@ public class GameView extends View {
 
     public GameView(Context context) {
         super(context);
-
+        this.context = context;
         bottomBackground = BitmapFactory.decodeResource(getResources(), R.drawable.bgbot);
         topBackground = BitmapFactory.decodeResource(getResources(), R.drawable.bgtop);
         distanceIcon = BitmapFactory.decodeResource(getResources(), R.drawable.distance);
@@ -53,55 +53,56 @@ public class GameView extends View {
         bird = BitmapFactory.decodeResource(getResources(), R.drawable.bird);
 
         score.setColor(Color.BLACK);
-        score.setTextSize(70);
+        score.setTextSize(50);
         score.setTypeface(Typeface.DEFAULT_BOLD);
         score.setAntiAlias(true);
+        score.setTextAlign(Paint.Align.RIGHT);
 
         dogY = 550;
         distance = 0;
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    private void SetupAmbient(Canvas canvas){
         canvasHeight = canvas.getHeight();
         canvasWidth = canvas.getWidth();
 
-        canvas.drawBitmap(topBackground, 0, 0, null);
-        canvas.drawBitmap(bottomBackground, 0, (canvasHeight-bottomBackground.getHeight()), null);
+        topBackground = Bitmap.createScaledBitmap(topBackground, canvasWidth, topBackground.getHeight(), true);
+        bottomBackground = Bitmap.createScaledBitmap(bottomBackground, canvasWidth, bottomBackground.getHeight(), true);
 
-        int minDogY = dog[0].getHeight() - 50;
-        int maxDogY = canvasHeight - dog[0].getHeight() - 50;
+        minDogY = dog[0].getHeight() - 50;
+        maxDogY = canvasHeight - dog[0].getHeight() - 50;
+    }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (canvasHeight == 0 || canvasWidth == 0){
+            SetupAmbient(canvas);
+        }
 
         dogY = dogY + dogJump;
         if (dogY < minDogY)
             dogY = minDogY;
         if (dogY > maxDogY)
             dogY = maxDogY;
-
         dogJump = dogJump + 2;
 
         if (touch && jumping){
-            DogJumping(canvas);
             touch = false;
         }
         else if (touch && !jumping){
-            DogJumping(canvas);
             touch = false;
             dogJump =  -50;
             jumping = true;
             animationHandler.sendEmptyMessageDelayed(0, 1500);
         }
-        else if (!touch && jumping){
-            DogJumping(canvas);
-        }
-        else if (!touch && !jumping){
-            DogIdle(canvas);
-        }
 
         birdX = birdX - birdSpeed;
 
         if (hitObjectChecker(birdX, birdY)){
+            ((GameActivity) context).EndGame();
             distance = 0;
             birdX -= 500;
         }
@@ -110,23 +111,8 @@ public class GameView extends View {
             birdX = canvasWidth + bird.getWidth();
             birdY = (int) Math.floor(Math.random() * (maxDogY - minDogY)) + minDogY;
         }
-        Bird(canvas);
 
-        canvas.drawBitmap(distanceIcon, canvasWidth, 0, null);
-        distance++;
-        canvas.drawText("Bones: " + distance, canvasWidth - distanceIcon.getWidth(), 0, score);
-    }
-
-    private void DogIdle(Canvas canvas){
-        canvas.drawBitmap(dog[0], dogX, dogY, null);
-    }
-
-    private void DogJumping(Canvas canvas){
-        canvas.drawBitmap(dog[1], dogX, dogY, null);
-    }
-
-    private void Bird(Canvas canvas){
-        canvas.drawBitmap(bird, birdX, birdY, null);
+        RenderObjects(canvas);
     }
 
     public boolean hitObjectChecker(int x, int y){
@@ -143,5 +129,15 @@ public class GameView extends View {
                 touch = true;
         }
         return true;
+    }
+
+    // Render objects in line order
+    private void RenderObjects(Canvas canvas){
+        canvas.drawBitmap(topBackground, 0, 0, null);
+        canvas.drawBitmap(bottomBackground, 0, (canvasHeight-bottomBackground.getHeight()), null);
+        canvas.drawBitmap(dog[jumping ? 1 : 0], dogX, dogY, null);
+        canvas.drawBitmap(bird, birdX, birdY, null);
+        canvas.drawBitmap(distanceIcon, (canvasWidth-distanceIcon.getWidth()-10), 10, null);
+        canvas.drawText(++distance + " m", (canvasWidth-distanceIcon.getWidth()+15), distanceIcon.getHeight()-5, score);
     }
 }
