@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="287dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/generate"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:text="@string/exercise_abdominal"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="115dp"
+        android:text="@string/exercise_back"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="185dp"
+        android:text="@string/exercise_biceps"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="255dp"
+        android:text="@string/exercise_chest"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="325dp"
+        android:text="@string/exercise_shoulder"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="395dp"
+        android:text="@string/exercise_triceps"
+        android:textSize="18sp"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxAbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_marginTop="-5dp"
+        android:layout_marginEnd="0dp" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBoxAbs"
+        android:layout_alignTop="@+id/textView4" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBiceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBoxAbs"
+        android:layout_alignTop="@+id/textView7" />
+
+    <CheckBox
+        android:id="@+id/checkBoxChest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView8"
+        android:layout_alignEnd="@+id/button2" />
+
+    <CheckBox
+        android:id="@+id/checkBoxShoulder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView10"
+        android:layout_alignEnd="@+id/button2" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTriceps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkBoxAbs"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_alignEnd="@+id/button2" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="75dp"
+        android:background="?android:attr/listDivider" />
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="148dp"
+        android:background="?android:attr/listDivider" />
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="218dp"
+        android:background="?android:attr/listDivider" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="287dp"
+        android:background="?android:attr/listDivider" />
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="358dp"
+        android:background="?android:attr/listDivider" />
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="315dp"
+        android:layout_height="1dp"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="425dp"
+        android:background="?android:attr/listDivider" />
+
+</android.widget.RelativeLayout>
