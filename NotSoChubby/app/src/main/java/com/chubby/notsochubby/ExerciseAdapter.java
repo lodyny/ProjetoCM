@@ -1,24 +1,57 @@
 package com.chubby.notsochubby;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.security.PublicKey;
+import java.util.ArrayList;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
+    private ArrayList<Exercise> mExercises = new ArrayList<>();
+    private Context mContext;
+        public ExerciseAdapter(Context context,ArrayList<Exercise> exercises) {
+            this.mExercises = exercises;
+            this.mContext = context;
+        }
+
+    @Override
+    public ExerciseAdapter.ExerciseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // create a new view
+        View v = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.layout_exercise_list_template,parent,false);
+        return new ExerciseViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(ExerciseViewHolder holder, int position) {
+        Exercise exercise = mExercises.get(position);
+        holder.mTextViewDesc.setText(exercise.getDescription());
+        holder.mTextViewRepeat.setText(exercise.getRepeats());
+        holder.mImageView.setImageDrawable(exercise.getImage());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mExercises.size();
+    }
+
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView mTextViewDesc;
-        public TextView mTextViewRepeat;
-        public CheckBox mcheckBox;
-        public ImageView mImageView;
+        private TextView mTextViewDesc;
+        private TextView mTextViewRepeat;
+        private CheckBox mcheckBox;
+        private ImageView mImageView;
         public ExerciseViewHolder(View v) {
             super(v);
-            mTextViewDesc = v.findViewById(R.id.textViewDescription);
-
+            mTextViewDesc = v.findViewById(R.id.textViewDesc);
+            mTextViewRepeat = v.findViewById(R.id.textViewTimeToRepeat);
+            mcheckBox = v.findViewById(R.id.checkBoxIsDone);
+            mImageView = v.findViewById(R.id.imageView);
         }
+    }
 }
 

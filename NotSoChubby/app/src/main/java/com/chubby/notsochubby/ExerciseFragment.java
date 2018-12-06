@@ -10,14 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.nio.BufferUnderflowException;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 
 public class ExerciseFragment extends Fragment {
+    private ExerciseAdapter mExerciseAdapter;
     private View v;
-    HashMap<String,Boolean> map;
-    RecyclerView recyclerView;
+    private ArrayList<Exercise> exercises;
+    private RecyclerView recyclerView;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -28,28 +28,36 @@ public class ExerciseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_exercise,null);
+        exercises =  new ArrayList<>();
         Bundle bundle = this.getArguments();
+        if(bundle!=null){
+            if (bundle.getBoolean("isAbsChecked")){
+                exercises.add(new Exercise(getString(R.string.exercise_hipopressive_abdominal),"20-30x",getResources().getDrawable(R.drawable.hipopressiveabs)));
+                exercises.add(new Exercise(getString(R.string.exercise_frontal_board),"30-60 "+getString(R.string.seconds),getResources().getDrawable(R.drawable.frontalboard)));
+                exercises.add(new Exercise(getString(R.string.exercise_side_board),"30-60 "+getString(R.string.seconds),getResources().getDrawable(R.drawable.sideboard)));
+                exercises.add(new Exercise(getString(R.string.exercise_modified_bicycle),"20-30x",getResources().getDrawable(R.drawable.modifiedbicycle)));
+                exercises.add(new Exercise(getString(R.string.exercise_inverted_abdominal),"12-20x",getResources().getDrawable(R.drawable.abdominalinvertido)));
+            }
+            if (bundle.getBoolean("isBackChecked")){
+                exercises.add(new Exercise(getString(R.string.exercise_back_deadlift),"10-15x",getResources().getDrawable(R.drawable.deadlift)));
+                exercises.add(new Exercise(getString(R.string.exercise_back_chinup),"20x",getResources().getDrawable(R.drawable.elevacaoespegasamplas)));
+                exercises.add(new Exercise(getString(R.string.exercise_back_remada_inclinada),"30-60x",getResources().getDrawable(R.drawable.remadainclinadabarra)));
+                exercises.add(new Exercise(getString(R.string.exercise_back_pulldown),"15-20x",getResources().getDrawable(R.drawable.pulldown)));
+            }
+//            if(bundle.getBoolean("isBicepsChecked")){
+//                exercises.add(new Exercise(getString(R.string.exercise_back_deadlift),"10-15x",getResources().getDrawable(R.drawable.deadlift)));
+//                exercises.add(new Exercise(getString(R.string.exercise_back_chinup),"20x",getResources().getDrawable(R.drawable.elevacaoespegasamplas)));
+//                exercises.add(new Exercise(getString(R.string.exercise_back_remada_inclinada),"30-60x",getResources().getDrawable(R.drawable.remadainclinadabarra)));
+//                exercises.add(new Exercise(getString(R.string.exercise_back_pulldown),"15-20x",getResources().getDrawable(R.drawable.pulldown)));
+//            }
+        }
+        mExerciseAdapter = new ExerciseAdapter(getContext(),exercises);
         recyclerView =  (RecyclerView)v.findViewById(R.id.recyclerViewExercise);
+        recyclerView.setClickable(true);
+        recyclerView.setAdapter(mExerciseAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        if(bundle!=null){
-
-        }
+        recyclerView.setHasFixedSize(false);
         return v;
-    }
-
-    private void getAllTrue(Bundle bundle,HashMap<String,Boolean> list){
-        if (bundle.getBoolean("isAbsChecked"))
-            list.put("Abs",bundle.getBoolean("isAbsChecked"));
-        if (bundle.getBoolean("isBackChecked"))
-            list.put("Back",bundle.getBoolean("isBackChecked"));
-        if (bundle.getBoolean("isBicepsChecked"))
-            list.put("Biceps",bundle.getBoolean("isBicepsChecked"));
-        if (bundle.getBoolean("isChestChecked"))
-            list.put("Chest",bundle.getBoolean("isChestChecked"));
-        if (bundle.getBoolean("isShoulderChecked"))
-            list.put("Shoulder",bundle.getBoolean("isShoulderChecked"));
-        if (bundle.getBoolean("isTricepsChecked"))
-            list.put("Triceps",bundle.getBoolean("isTricepsChecked"));
     }
 }
