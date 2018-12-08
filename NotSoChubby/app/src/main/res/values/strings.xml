@@ -11,5 +11,35 @@
     <string name="nav_profile">Perfil</string>
     <string name="nav_notifications">Notificações</string>
     <string name="nav_config">Configurações</string>
-
+    <string name="generate">Gerar</string>
+    <string name="diet_breakfast">Pequeno-Almoco</string>
+    <string name="diet_brunch">Lanche da Manha</string>
+    <string name="diet_lunch">Almoco</string>
+    <string name="diet_afterLunch">Lanche</string>
+    <string name="diet_dinner">Jantar</string>
+    <string name="diet_supper">Ceia</string>
+    <string name="exercise_abdominal">Abdominais</string>
+    <string name="exercise_back">Costas</string>
+    <string name="exercise_biceps">Biceps</string>
+    <string name="exercise_chest">Peito</string>
+    <string name="exercise_shoulder">Ombros</string>
+    <string name="exercise_triceps">Triceps</string>
+    <string name="exercise_hipopressive_abdominal">Abdominais hipopressivos</string>
+    <string name="exercise_side_board">Prancha Lateral</string>
+    <string name="exercise_frontal_board">Prancha Frontal</string>
+    <string name="exercise_modified_bicycle">Bicicleta no solo</string>
+    <string name="exercise_inverted_abdominal">Abdominais Invertidos</string>
+    <string name="exercise_abs_hipopressive_abs">Os abdominais hipopressivos reforçam os músculos da faixa abdominal e pélvica com a ajuda dos músculos da respiração (ex. diafragma)</string>
+    <string name="exercise_abs_side_board">A prancha lateral atinge todas as partes do teu corpo, permitindo que trabalhes algumas zonas problemáticas e que corrijas algumas falhas de equilíbrio.</string>
+    <string name="exercise_abs_frontal_board">A prancha é um excelente exercício para trabalhar todo o tronco e pode estimular até 130% mais a zona abdominal do que propriamente fazer abdominais.</string>
+    <string name="exercise_abs_ground_bike">Este movimento estimula aproximadamente 190% mais a tua zona abdominal do que fazer abdominais.</string>
+    <string name="exercise_abs_inverted_abs">Este exercício deverá activar 140% mais os teus abdominais do que fazer abdominais simples.</string>
+    <string name="seconds">Segundos</string>
+    <string name="exercise_back_chinup">Chinups</string>
+    <string name="exercise_back_deadlift">Peso Morto</string>
+    <string name="exercise_back_remada_inclinada">Remada Inclinada</string>
+    <string name="exercise_back_pulldown">Pulldown</string>
+    <!--<string name="exercise_2_to_3_series_repeats">2 a 3 series de 20–30 repeticoes</string>-->
+    <!--<string name="exercise_2_to_3_series_seconds">2 a 3 series de 30–60 segundos</string>-->
+    <!--<string name="exercise_2_to_3_series_seconds_12_to_20">2–3 séries de 12–20 repeticoes</string>-->
 </resources>
