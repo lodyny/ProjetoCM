@@ -29,7 +29,7 @@
         android:visibility="visible"
         app:srcCompat="@drawable/bgbot" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -125,6 +125,6 @@
             app:layout_constraintStart_toEndOf="@+id/shopButton"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/rankbutton" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
