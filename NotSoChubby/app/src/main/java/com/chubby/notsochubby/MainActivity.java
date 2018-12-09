@@ -20,6 +20,8 @@ import com.chubby.game.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
+    private FragmentManager fragmentManager;
+    private ActionBar actionBar;
 
     private NavigationView.OnNavigationItemSelectedListener mOnDrawerNavigationItemSelectedListener
             = new NavigationView.OnNavigationItemSelectedListener() {
@@ -29,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
             menuItem.setChecked(true);
             switch (menuItem.getItemId()){
                 case R.id.nav_drawer_diet:
-                    ActionBar actionbar = getSupportActionBar();
-                    actionbar.setTitle(R.string.nav_diet);
+                    actionBar = getSupportActionBar();
+                    actionBar.setTitle(R.string.nav_diet);
                     fragment = new GestorCaloriasFragment();break;
                 case R.id.nav_drawer_exercise:
-                    ActionBar actionBar = getSupportActionBar();
+                    actionBar = getSupportActionBar();
                     actionBar.setTitle(R.string.nav_exercice);
                     fragment = new GestorExercicioFragment();
             }
@@ -56,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_exercise:
-                    ActionBar actionBar = getSupportActionBar();
+                    actionBar = getSupportActionBar();
                     actionBar.setTitle(R.string.nav_exercice);
                     fragment = new GestorExercicioFragment();
-                    FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction ft = fragmentManager.beginTransaction();
                     ft.replace(R.id.fragment_container,fragment);
                     ft.commit();
@@ -88,10 +89,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.vector_drawer_menu);
-        actionbar.setTitle(R.string.nav_news);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.vector_drawer_menu);
+        actionBar.setTitle(R.string.nav_news);
+        fragmentManager = getSupportFragmentManager();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnBottomNavigationItemSelectedListener);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,5 +109,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container);
+        actionBar.setTitle(R.string.nav_news);
+        if(fragment!=null){
+            FragmentTransaction transaction =fragmentManager.beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+        }
     }
 }
