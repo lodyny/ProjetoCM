@@ -43,17 +43,11 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
         new DownloadDBAsyncTask(this).execute();
     }
 
     private void goToMain(){
-        Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+        Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
@@ -88,33 +82,33 @@ public class SplashScreen extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call call,@NonNull Response response) throws IOException {
                     if(response.isSuccessful() && response.body() != null){
-                         ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
-                         NewsCategoryDao categoriesDao = db.newsCategoryDao();
-                         List<NewsCategory> categories = gson.fromJson(response.body().string(), new TypeToken<List<NewsCategory>>() {}.getType());
+                        ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
+                        NewsCategoryDao categoriesDao = db.newsCategoryDao();
+                        List<NewsCategory> categories = gson.fromJson(response.body().string(), new TypeToken<List<NewsCategory>>() {}.getType());
                         categoriesDao.insert(categories);
                         String newsUrl = "https://chubby.westeurope.cloudapp.azure.com/chubby/api/getNews.php";
                         Request newsRequest = new Request.Builder()
                                 .url(newsUrl)
                                 .build();
-                         client.newCall(newsRequest).enqueue(new Callback() {
-                             @Override
-                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                                 success.set(false);
-                                 latch.countDown();
-                             }
-                             @Override
-                             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                                 if(response.isSuccessful() && response.body() != null) {
-                                     ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
-                                     NewsDao newsDao = db.newsDao();
-                                     List<News> news = gson.fromJson(response.body().string(), new TypeToken<List<News>>() {}.getType());
-                                     newsDao.insert(news);
-                                 } else{
-                                     success.set(false);
-                                 }
-                                 latch.countDown();
-                             }
-                         });
+                        client.newCall(newsRequest).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                                success.set(false);
+                                latch.countDown();
+                            }
+                            @Override
+                            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                                if(response.isSuccessful() && response.body() != null) {
+                                    ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
+                                    NewsDao newsDao = db.newsDao();
+                                    List<News> news = gson.fromJson(response.body().string(), new TypeToken<List<News>>() {}.getType());
+                                    newsDao.insert(news);
+                                } else{
+                                    success.set(false);
+                                }
+                                latch.countDown();
+                            }
+                        });
                     } else {
                         success.set(false);
                         latch.countDown();

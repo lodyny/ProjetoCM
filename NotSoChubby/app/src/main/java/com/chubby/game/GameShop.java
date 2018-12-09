@@ -1,11 +1,12 @@
 package com.chubby.game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.chubby.notsochubby.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class GameShop extends AppCompatActivity {
 
