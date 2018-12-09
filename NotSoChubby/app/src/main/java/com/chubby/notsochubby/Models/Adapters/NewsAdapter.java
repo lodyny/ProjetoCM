@@ -1,10 +1,15 @@
 package com.chubby.notsochubby.Models.Adapters;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,8 +74,13 @@ public class NewsAdapter extends ListAdapter<NewsAndCategory, NewsAdapter.NewVie
     public void onBindViewHolder(@NonNull NewViewHolder newViewHolder, int i) {
         NewsAndCategory currentNews = getNewsAt(i);
         newViewHolder.tvNewTitle.setText(currentNews.getNews().getTitle());
-        String publishCategory = Converters.calendarToDate(currentNews.getNews().getPublishAt()) + " | " + currentNews.getCategory().getName();
-        newViewHolder.tvNewPublishCategory.setText(publishCategory);
+
+        String publishDate = Converters.calendarToDate(currentNews.getNews().getPublishAt()) + " | ";
+        String category = currentNews.getCategory().getName();
+        SpannableString publishAndCategory = new SpannableString(publishDate + category);
+        publishAndCategory.setSpan(new ForegroundColorSpan(ContextCompat.getColor(newViewHolder.tvNewPublishCategory.getContext(), R.color.colorSecondary)),
+                publishDate.length(), publishDate.length() + category.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        newViewHolder.tvNewPublishCategory.setText(publishAndCategory);
         GlideApp.with(newViewHolder.ivNew.getContext())
                 .load(currentNews.getNews().getImagePath())
                 .centerCrop()
