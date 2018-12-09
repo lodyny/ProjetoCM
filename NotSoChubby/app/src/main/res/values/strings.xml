@@ -37,12 +37,22 @@
     <string name="game_powerups">Current Power-Ups:</string>
     <string name="game_distance_travelled">Travelled Distance: </string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_news_display">Notícia</string>
+    <string name="title_activity_meal_display">Refeição</string>
 
     <!-- AUTH -->
     <string name="facebook_app_id">570057796770794</string>
     <string name="fb_login_protocol_scheme">fb570057796770794</string>
     <string name="no_internet">There is no Internet connection, some features maybe disabled!</string>
     <string name="auth_welcome">Welcome</string>
+    <string name="fgm_meals_title">Calorias diárias</string>
+    <string name="fgm_meals_run">Gerar</string>
+    <string name="fgm_meals_breakfast">Pequeno-Almoço</string>
+    <string name="fgm_meals_morning_lunch">Lanche da manhã</string>
+    <string name="fgm_meals_lunch">Almoço</string>
+    <string name="fgm_meals_snack">Lanche</string>
+    <string name="fgm_meals_dinner">Jantar</string>
+    <string name="fgm_meals_supper">Snack</string>
 
     <string name="exercise_hipopressive_abdominal">Hipopressive Abdominal</string>
     <string name="exercise_side_board">Side Board</string>
@@ -117,5 +127,6 @@
     <string name="get_directions">Obter Direcções</string>
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
     <string name="title_fragment_news_display">Notícias</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

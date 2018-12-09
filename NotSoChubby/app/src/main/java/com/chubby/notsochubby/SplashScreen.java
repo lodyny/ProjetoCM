@@ -3,18 +3,21 @@ package com.chubby.notsochubby;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Toast;
 
-import com.chubby.notsochubby.models.ChubbyDatabase;
-import com.chubby.notsochubby.models.dao.NewsCategoryDao;
-import com.chubby.notsochubby.models.dao.NewsDao;
-import com.chubby.notsochubby.models.dao.SpotCategoryDao;
-import com.chubby.notsochubby.models.dao.SpotDao;
-import com.chubby.notsochubby.models.entities.News;
-import com.chubby.notsochubby.models.entities.NewsCategory;
-import com.chubby.notsochubby.models.entities.Spot;
-import com.chubby.notsochubby.models.entities.SpotCategory;
-import com.chubby.notsochubby.models.LocalDateTimeConverter;
+import com.chubby.notsochubby.Models.ChubbyDatabase;
+import com.chubby.notsochubby.Models.Dao.MealsDao;
+import com.chubby.notsochubby.Models.Dao.NewsCategoryDao;
+import com.chubby.notsochubby.Models.Dao.NewsDao;
+import com.chubby.notsochubby.Models.Dao.SpotCategoryDao;
+import com.chubby.notsochubby.Models.Dao.SpotDao;
+import com.chubby.notsochubby.Models.Entities.Meal;
+import com.chubby.notsochubby.Models.Entities.News;
+import com.chubby.notsochubby.Models.Entities.NewsCategory;
+import com.chubby.notsochubby.Models.Entities.Spot;
+import com.chubby.notsochubby.Models.Entities.SpotCategory;
+import com.chubby.notsochubby.Models.LocalDateTimeConverter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -29,11 +32,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -58,7 +63,7 @@ public class SplashScreen extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... voids) {
-            final CountDownLatch latch = new CountDownLatch(2);
+            final CountDownLatch latch = new CountDownLatch(3);
             final AtomicBoolean success = new AtomicBoolean(true);
             GsonBuilder builder = new GsonBuilder();
             builder.registerTypeAdapter(LocalDateTime.class, new LocalDateTimeConverter());
@@ -79,33 +84,33 @@ public class SplashScreen extends AppCompatActivity {
                 @Override
                 public void onResponse(@NonNull Call call,@NonNull Response response) throws IOException {
                     if(response.isSuccessful() && response.body() != null){
-                        ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
-                        NewsCategoryDao categoriesDao = db.newsCategoryDao();
-                        List<NewsCategory> categories = gson.fromJson(response.body().string(), new TypeToken<List<NewsCategory>>() {}.getType());
+                         ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
+                         NewsCategoryDao categoriesDao = db.newsCategoryDao();
+                         List<NewsCategory> categories = gson.fromJson(response.body().string(), new TypeToken<List<NewsCategory>>() {}.getType());
                         categoriesDao.insert(categories);
                         String newsUrl = "https://chubby.westeurope.cloudapp.azure.com/chubby/api/getNews.php";
                         Request newsRequest = new Request.Builder()
                                 .url(newsUrl)
                                 .build();
-                        client.newCall(newsRequest).enqueue(new Callback() {
-                            @Override
-                            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                                success.set(false);
-                                latch.countDown();
-                            }
-                            @Override
-                            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                                if(response.isSuccessful() && response.body() != null) {
-                                    ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
-                                    NewsDao newsDao = db.newsDao();
-                                    List<News> news = gson.fromJson(response.body().string(), new TypeToken<List<News>>() {}.getType());
-                                    newsDao.insert(news);
-                                } else{
-                                    success.set(false);
-                                }
-                                latch.countDown();
-                            }
-                        });
+                         client.newCall(newsRequest).enqueue(new Callback() {
+                             @Override
+                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                                 success.set(false);
+                                 latch.countDown();
+                             }
+                             @Override
+                             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                                 if(response.isSuccessful() && response.body() != null) {
+                                     ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
+                                     NewsDao newsDao = db.newsDao();
+                                     List<News> news = gson.fromJson(response.body().string(), new TypeToken<List<News>>() {}.getType());
+                                     newsDao.insert(news);
+                                 } else{
+                                     success.set(false);
+                                 }
+                                 latch.countDown();
+                             }
+                         });
                     } else {
                         success.set(false);
                         latch.countDown();
@@ -147,8 +152,6 @@ public class SplashScreen extends AppCompatActivity {
                                 if(response.isSuccessful() && response.body() != null) {
                                     ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
                                     SpotDao spotDao = db.spotDao();
-                                    List<Spot> spots = gson.fromJson(response.body().string(), new TypeToken<List<Spot>>() {}.getType());
-                                    spotDao.insert(spots);
                                 } else{
                                     success.set(false);
                                 }
@@ -161,6 +164,32 @@ public class SplashScreen extends AppCompatActivity {
                     }
                 }
             });
+            //Meals JSON
+            String mealsUrl = "http://dfons25.pythonanywhere.com/api/meals";
+            Request mealsRequest = new Request.Builder()
+                    .url(mealsUrl)
+                    .build();
+            client.newCall(mealsRequest).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call,@NonNull IOException e) {
+                    success.set(false);
+                    latch.countDown();
+                }
+
+                @Override
+                public void onResponse(@NonNull Call call,@NonNull Response response) throws IOException {
+                    if(response.isSuccessful() && response.body() != null){
+                        ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
+                        MealsDao mealsDao = db.mealsDao();
+                        List<Meal> meals = gson.fromJson(response.body().string(), new TypeToken<List<Meal>>() {}.getType());
+                        mealsDao.insert(meals);
+                    } else {
+                        success.set(false);
+                    }
+                    latch.countDown();
+                }
+            });
+
             try {
                 latch.await();
             } catch (InterruptedException e) {
@@ -177,4 +206,5 @@ public class SplashScreen extends AppCompatActivity {
             activity.goToMain();
         }
     }
+
 }
