@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener{
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout = findViewById(R.id.drawer_layout);
         drawerNavigation = findViewById(R.id.nav_view);
         drawerNavigation.setNavigationItemSelectedListener(this);
-        TextView userNameView = (TextView)findViewById(R.id.drawer_id);
+        View v = drawerNavigation.getHeaderView(0);
+        TextView userNameView = v.findViewById(R.id.drawer_id);
         userNameView.setText(((ChubbyApplication) getApplication()).getUsername());
     }
 
@@ -78,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_map).setChecked(true);
             fragment = MapFragment.newInstance();
         } else if(itemId == R.id.nav_drawer_game || itemId == R.id.navigation_game){
-            bottomNavigation.getMenu().findItem(R.id.navigation_game).setChecked(true);
-            drawerNavigation.getMenu().findItem(R.id.nav_drawer_game).setChecked(true);
+            //bottomNavigation.getMenu().findItem(R.id.navigation_game).setChecked(true);
+            //drawerNavigation.getMenu().findItem(R.id.nav_drawer_game).setChecked(true);
             Intent intent = new Intent(MainActivity.this, GameActivity.class);
             startActivity(intent);
             return true;

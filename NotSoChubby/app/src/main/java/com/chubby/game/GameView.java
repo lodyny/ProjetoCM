@@ -20,6 +20,7 @@ public class GameView extends View {
     private int canvasWidth, canvasHeight;
     private boolean touch = false;
     private boolean jumping = false;
+    private int boost;
 
     private int distance;
     private Paint score = new Paint();
@@ -67,6 +68,10 @@ public class GameView extends View {
         score.setTextAlign(Paint.Align.RIGHT);
     }
 
+    public void SetupBoost(int code){
+        boost = code;
+    }
+
     private void SetupNewGame(Canvas canvas){
         if(canvas.getHeight() > canvas.getWidth())
             return;
@@ -103,7 +108,10 @@ public class GameView extends View {
         }
         else if (touch && !jumping){
             touch = false;
-            dogJump =  -50;
+            if(boost == 2)
+                dogJump = -100;
+            else
+                dogJump =  -50;
             dogJumpSound.start();
             jumping = true;
             animationHandler.sendEmptyMessageDelayed(0, 800);
