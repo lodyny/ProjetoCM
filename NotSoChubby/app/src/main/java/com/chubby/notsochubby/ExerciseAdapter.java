@@ -5,9 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,9 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         Exercise exercise = mExercises.get(position);
         holder.mTextViewDesc.setText(exercise.getDescription());
         holder.mTextViewRepeat.setText(exercise.getRepeats());
-        holder.mImageView.setImageDrawable(exercise.getImage());
+        Glide.with(mContext)
+                .load(exercise.getImage())
+                .into(holder.mImageView);
     }
 
     @Override
@@ -43,13 +46,13 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder {
         private TextView mTextViewDesc;
         private TextView mTextViewRepeat;
-        private CheckBox mcheckBox;
+        //private CheckBox mcheckBox;
         private ImageView mImageView;
         public ExerciseViewHolder(View v) {
             super(v);
             mTextViewDesc = v.findViewById(R.id.textViewDesc);
             mTextViewRepeat = v.findViewById(R.id.textViewTimeToRepeat);
-            mcheckBox = v.findViewById(R.id.checkBoxIsDone);
+            //mcheckBox = v.findViewById(R.id.checkBoxIsDone);
             mImageView = v.findViewById(R.id.imageView);
         }
     }
