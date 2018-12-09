@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "988457803182",
+    "firebase_url": "https://not-so-chubby-6906903.firebaseio.com",
+    "project_id": "not-so-chubby-6906903",
+    "storage_bucket": "not-so-chubby-6906903.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988457803182:android:742866befa93dccb",
+        "android_client_info": {
+          "package_name": "com.chubby.notsochubby"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988457803182-nuth3mh6fbd47r9d35qir6fsv6mv6nun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chubby.notsochubby",
+            "certificate_hash": "53b894f05fe6211083b7b1127dca32625ee0af78"
+          }
+        },
+        {
+          "client_id": "988457803182-qolqlb03hite4osni51brhbfn6i0fj57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5An1UhXeETvLt9xub1QQMUHHlvtQu2UY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988457803182-qolqlb03hite4osni51brhbfn6i0fj57.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

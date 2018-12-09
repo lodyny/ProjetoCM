@@ -24,4 +24,17 @@
     <string name="exercise_chest">Peito</string>
     <string name="exercise_shoulder">Ombros</string>
     <string name="exercise_triceps">Triceps</string>
+
+    <!-- GAME STRINGS -->
+    <string name="game_bgimage_desc">Background image</string>
+    <string name="game_dog_desc">Dog</string>
+    <string name="game_exit_desc">Return</string>
+    <string name="game_shop_desc">Shop</string>
+    <string name="game_rank_desc">Rankings</string>
+    <string name="game_start_game">START GAME</string>
+    <string name="game_no_powerups">No Power-Ups Active</string>
+    <string name="game_powerups">Current Power-Ups:</string>
+    <string name="game_distance_travelled">Travelled Distance: </string>
+    <string name="title_activity_login">Sign in</string>
+
 </resources>
