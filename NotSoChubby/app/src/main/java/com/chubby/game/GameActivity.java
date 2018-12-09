@@ -64,8 +64,9 @@ public class GameActivity extends AppCompatActivity {
 
         if (requestCode == BUY_ITEMS_SHOP) {
             switch(resultCode){
-                case 1: textBoost.setText("Bónus ativo: Vida Extra"); break;
-                default: textBoost.setText("Nenhum bónus ativo");
+                case 1: gameBoost = 1; textBoost.setText("Current bonus: Extra Life"); break;
+                case 2: gameBoost = 2; textBoost.setText("Current bonus: Jumpy Dog"); break;
+                default: gameBoost = 0; textBoost.setText("Nenhum bónus ativo");
             }
         }
     }
@@ -74,6 +75,7 @@ public class GameActivity extends AppCompatActivity {
     private void StartGame(){
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         gameView = new GameView(this);
+        gameView.SetupBoost(gameBoost);
         setContentView(gameView);
 
         // GAME UI
