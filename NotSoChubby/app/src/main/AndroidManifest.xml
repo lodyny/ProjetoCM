@@ -13,6 +13,10 @@
 
     <application
         android:name=".Models.ChubbyApplication">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".Models.ChubbyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcherdog"
         android:label="@string/app_name"
@@ -45,6 +49,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyADfmrgxf4GY2GbMVBrtxDsOLGRUUR0hTE"/>
+
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 
@@ -62,7 +70,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
+            android:name=".NewsActivity"
+            android:label="@string/title_activity_news_display"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
