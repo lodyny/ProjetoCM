@@ -3,7 +3,7 @@
 
  <item>
  <bitmap
- android:gravity="center"
+ android:gravity="fill_vertical|fill_horizontal|center"
  android:src="@drawable/splash" />
  </item>
 
