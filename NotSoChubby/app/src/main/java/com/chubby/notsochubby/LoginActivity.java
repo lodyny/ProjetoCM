@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.chubby.notsochubby.Models.ChubbyApplication;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -42,12 +43,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private String email;
-    private String name;
 
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInAccount mGoogleSignInAccount;
+    private String email;
     private static final int RC_SIGN_IN = 1904;
     private static final String RC_SIGN_KEY = "988457803182-qolqlb03hite4osni51brhbfn6i0fj57.apps.googleusercontent.com";
 
@@ -168,8 +168,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void goToMainActivity(String name, String email){
-        this.name = name;
-        this.email = email;
+        ChubbyApplication ca = (ChubbyApplication) getApplication();
+        ca.setAuthentication(name, email);
         displayToast(getResources().getString(R.string.auth_welcome) + " " + name);
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
