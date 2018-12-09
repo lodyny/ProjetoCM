@@ -53,12 +53,13 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
+            FragmentTransaction ft;
+            actionBar = getSupportActionBar();
             switch (item.getItemId()) {
                 case R.id.navigation_exercise:
-                    actionBar = getSupportActionBar();
                     actionBar.setTitle(R.string.nav_exercice);
                     fragment = new GestorExercicioFragment();
-                    FragmentTransaction ft = fragmentManager.beginTransaction();
+                    ft = fragmentManager.beginTransaction();
                     ft.replace(R.id.fragment_container,fragment);
                     ft.commit();
                     return true;
@@ -66,7 +67,11 @@ public class MainActivity extends AppCompatActivity {
                     //mudança fragmento diet
                     return true;
                 case R.id.navigation_calendar:
-                    //mudança fragmento calendar
+                    actionBar.setTitle(R.string.nav_calendar);
+                    fragment = new CalendarFragment();
+                    ft = fragmentManager.beginTransaction();
+                    ft.replace(R.id.fragment_container,fragment);
+                    ft.commit();
                     return true;
                 case R.id.navigation_map:
                     //mudança fragmento map

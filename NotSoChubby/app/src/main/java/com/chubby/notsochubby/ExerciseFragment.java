@@ -8,13 +8,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.chubby.notsochubby.Models.Adapters.ExerciseAdapter;
+import com.chubby.notsochubby.Models.Exercise;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -80,6 +82,9 @@ public class ExerciseFragment extends Fragment {
             exercises.add(new Exercise(getString(R.string.exercise_biceps_overhead_cable_curl),MuscleType.BICEPS,"20x",getResources().getDrawable(R.drawable.overheadcablecurl)));
             exercises.add(new Exercise(getString(R.string.exercise_biceps_wide_grip_standing_curl),MuscleType.BICEPS,"15x",getResources().getDrawable(R.drawable.widegripcurl)));
             exercises.add(new Exercise(getString(R.string.exercise_biceps_zottman_curl),MuscleType.BICEPS,"13x",getResources().getDrawable(R.drawable.zottmancurl)));
+            exercises.add(new Exercise(getString(R.string.exercise_biceps_incline_dumbbell_hammer_curl),MuscleType.BICEPS,"20x",getResources().getDrawable(R.drawable.incline_dumbbell_hammer_curl)));
+            exercises.add(new Exercise(getString(R.string.exercise_biceps_incline_inner_biceps_curl),MuscleType.BICEPS,"20x",getResources().getDrawable(R.drawable.incline_inner_biceps_curl)));
+            exercises.add(new Exercise(getString(R.string.exercise_biceps_regular_grip_barbell_curl),MuscleType.BICEPS,"13x",getResources().getDrawable(R.drawable.regular_grip_barbell_curl)));
         }
         if (bundle.getBoolean("isChestChecked")){
             muscleTypesAvaliable.add(MuscleType.CHEST);
@@ -87,6 +92,9 @@ public class ExerciseFragment extends Fragment {
             exercises.add(new Exercise(getString(R.string.exercise_chest_bench_press),MuscleType.CHEST,"15x",getResources().getDrawable(R.drawable.bench_press)));
             exercises.add(new Exercise(getString(R.string.exercise_chest_reverse_grip_bench_press),MuscleType.CHEST,"13x",getResources().getDrawable(R.drawable.reverse_grip_bench_press)));
             exercises.add(new Exercise(getString(R.string.exercise_chest_weighted_push_ups),MuscleType.CHEST,"20x",getResources().getDrawable(R.drawable.weighted_push_up)));
+            exercises.add(new Exercise(getString(R.string.exercise_chest_barbell_bench_press),MuscleType.CHEST,"13x",getResources().getDrawable(R.drawable.barbel_bench_press)));
+            exercises.add(new Exercise(getString(R.string.exercise_chest_flat_bench_dumbbell_press),MuscleType.CHEST,"20x",getResources().getDrawable(R.drawable.flat_bench_dumbbell_press)));
+            exercises.add(new Exercise(getString(R.string.exercise_chest_low_incline_barbell_bench_press),MuscleType.CHEST,"20x",getResources().getDrawable(R.drawable.low_incline_barbell_bench_press)));
         }
         if (bundle.getBoolean("isShoulderChecked")){
             muscleTypesAvaliable.add(MuscleType.SHOULDER);
@@ -155,7 +163,6 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //return super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.newExercise){
             Fragment fragment = new GestorExercicioFragment();
             FragmentManager fragmentManager = getFragmentManager();

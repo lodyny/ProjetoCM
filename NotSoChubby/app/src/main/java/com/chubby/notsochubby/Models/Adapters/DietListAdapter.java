@@ -1,4 +1,4 @@
-package com.chubby.notsochubby;
+package com.chubby.notsochubby.Models.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
