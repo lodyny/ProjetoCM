@@ -3,6 +3,9 @@ package com.chubby.notsochubby;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import com.chubby.game.GameActivity;
+import com.chubby.notsochubby.Models.ChubbyApplication;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
@@ -15,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener{
 
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout = findViewById(R.id.drawer_layout);
         drawerNavigation = findViewById(R.id.nav_view);
         drawerNavigation.setNavigationItemSelectedListener(this);
+        TextView userNameView = (TextView)findViewById(R.id.drawer_id);
+        userNameView.setText(((ChubbyApplication) getApplication()).getUsername());
     }
 
     @Override
@@ -75,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(itemId == R.id.nav_drawer_game || itemId == R.id.navigation_game){
             bottomNavigation.getMenu().findItem(R.id.navigation_game).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_game).setChecked(true);
+            Intent intent = new Intent(MainActivity.this, GameActivity.class);
+            startActivity(intent);
             return true;
         } else if(itemId == R.id.nav_drawer_news) {
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_news).setChecked(true);
