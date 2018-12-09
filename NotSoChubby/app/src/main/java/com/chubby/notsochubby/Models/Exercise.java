@@ -1,6 +1,8 @@
-package com.chubby.notsochubby;
+package com.chubby.notsochubby.Models;
 
 import android.graphics.drawable.Drawable;
+
+import com.chubby.notsochubby.MuscleType;
 
 public class Exercise {
     private String description;

@@ -1,4 +1,4 @@
-package com.chubby.notsochubby;
+package com.chubby.notsochubby.Models.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chubby.notsochubby.Models.Exercise;
+import com.chubby.notsochubby.R;
 
 import java.util.ArrayList;
 
 public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
-    private ArrayList<Exercise> mExercises = new ArrayList<>();
+    private ArrayList<Exercise> mExercises;
     private Context mContext;
         public ExerciseAdapter(Context context,ArrayList<Exercise> exercises) {
             this.mExercises = exercises;
@@ -46,13 +48,11 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     public static class ExerciseViewHolder extends RecyclerView.ViewHolder {
         private TextView mTextViewDesc;
         private TextView mTextViewRepeat;
-        //private CheckBox mcheckBox;
         private ImageView mImageView;
         public ExerciseViewHolder(View v) {
             super(v);
             mTextViewDesc = v.findViewById(R.id.textViewDesc);
             mTextViewRepeat = v.findViewById(R.id.textViewTimeToRepeat);
-            //mcheckBox = v.findViewById(R.id.checkBoxIsDone);
             mImageView = v.findViewById(R.id.imageView);
         }
     }
