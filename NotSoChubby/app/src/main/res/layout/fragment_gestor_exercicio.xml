@@ -126,7 +126,8 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <CheckBox
         android:id="@+id/checkBoxBack"
@@ -137,7 +138,8 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxAbs" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAbs"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <CheckBox
         android:id="@+id/checkBoxBiceps"
@@ -159,7 +161,8 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="45dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxBiceps" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxBiceps"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <CheckBox
         android:id="@+id/checkBoxShoulder"
@@ -170,7 +173,8 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxChest" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxChest"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <CheckBox
         android:id="@+id/checkBoxTriceps"
@@ -182,7 +186,8 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxShoulder" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxShoulder"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider4"
@@ -196,7 +201,8 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAbs" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAbs"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider5"
@@ -211,7 +217,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBack" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBack"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider6"
@@ -225,7 +232,8 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBiceps" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewBiceps"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider7"
@@ -239,7 +247,8 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewChest" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewChest"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider8"
@@ -253,7 +262,8 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewShoulder" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewShoulder"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
     <View
         android:id="@+id/divider9"
@@ -267,6 +277,7 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTriceps" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTriceps"
+        android:buttonTint="@color/colorPrimaryDark"/>
 
 </android.support.constraint.ConstraintLayout>
