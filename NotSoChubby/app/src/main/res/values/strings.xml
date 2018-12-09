@@ -11,6 +11,7 @@
     <string name="nav_profile">Perfil</string>
     <string name="nav_notifications">Notificações</string>
     <string name="nav_config">Configurações</string>
+    <string name="nav_exit">Sair</string>
     <string name="generate">Gerar</string>
     <string name="diet_breakfast">Pequeno-Almoco</string>
     <string name="diet_brunch">Lanche da Manha</string>
@@ -36,6 +37,12 @@
     <string name="game_powerups">Current Power-Ups:</string>
     <string name="game_distance_travelled">Travelled Distance: </string>
     <string name="title_activity_login">Sign in</string>
+
+    <!-- AUTH -->
+    <string name="facebook_app_id">570057796770794</string>
+    <string name="fb_login_protocol_scheme">fb570057796770794</string>
+    <string name="no_internet">There is no Internet connection, some features maybe disabled!</string>
+    <string name="auth_welcome">Welcome</string>
 
     <string name="exercise_hipopressive_abdominal">Hipopressive Abdominal</string>
     <string name="exercise_side_board">Side Board</string>

@@ -47,10 +47,6 @@ public class GameActivity extends AppCompatActivity {
     // Shop Codes
     private static final int BUY_ITEMS_SHOP = 666;
 
-    GoogleSignInClient mGoogleSignInClient;
-    private static final int RC_SIGN_IN = 1904;
-    private static final String RC_SIGN_KEY = "988457803182-qolqlb03hite4osni51brhbfn6i0fj57.apps.googleusercontent.com";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,22 +55,6 @@ public class GameActivity extends AppCompatActivity {
 
         SetupButtons();
         textFinalScore.setVisibility(View.INVISIBLE);
-
-        // Configure Google Sign In
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                //.requestIdToken(RC_SIGN_KEY)
-                .requestEmail()
-                .build();
-
-        // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        signIn();
     }
 
     @Override
@@ -86,28 +66,9 @@ public class GameActivity extends AppCompatActivity {
                 case 1: textBoost.setText("Bónus ativo: Vida Extra"); break;
                 default: textBoost.setText("Nenhum bónus ativo");
             }
-        }else if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
         }
     }
 
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
-
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            textFinalScore.setText("Welcome " + account.getDisplayName());
-            textFinalScore.setVisibility(View.VISIBLE);
-
-        } catch (ApiException e) {
-            Log.e("GOOGLE_PLAY",e.getStatusCode() + " | " + e.getMessage());
-            finish();
-        }
-    }
 
     private void StartGame(){
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);

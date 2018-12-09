@@ -33,8 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_add_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\ruben\Desktop\baseline-menu-24px.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_exit" />
+                            <entry key="sourceFile" value="C:\Users\cesarnero\Downloads\exit.svg" />
                           </map>
                         </option>
                       </PersistentState>
