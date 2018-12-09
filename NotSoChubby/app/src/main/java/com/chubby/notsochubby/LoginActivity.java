@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.chubby.notsochubby.Models.ChubbyApplication;
+import com.chubby.notsochubby.models.ChubbyApplication;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -29,6 +29,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
@@ -96,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onCompleted(JSONObject object, GraphResponse response) {
                                 try {
-                                    String fEmail = object.getString("email");
-                                    email = fEmail;
+                                    email = object.getString("email");
                                 } catch (JSONException e) {
                                     displayToast(e.getMessage());
                                 }
@@ -115,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                return;
             }
 
             @Override
@@ -196,9 +196,7 @@ public class LoginActivity extends AppCompatActivity {
                 md.update(signature.toByteArray());
                 displayToast(Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }

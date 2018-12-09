@@ -2,11 +2,11 @@ package com.chubby.notsochubby;
 
 import android.os.Bundle;
 
-import com.chubby.notsochubby.Models.Utils.Converters;
-import com.chubby.notsochubby.Models.Entities.NewsAndCategory;
-import com.chubby.notsochubby.Models.GlideApp;
-import com.chubby.notsochubby.ViewModels.NewsDisplayFactory;
-import com.chubby.notsochubby.ViewModels.NewsDisplayViewModel;
+import com.chubby.notsochubby.models.utils.Converters;
+import com.chubby.notsochubby.models.entities.NewsAndCategory;
+import com.chubby.notsochubby.models.GlideApp;
+import com.chubby.notsochubby.viewmodels.NewsDisplayFactory;
+import com.chubby.notsochubby.viewmodels.NewsDisplayViewModel;
 
 
 import androidx.appcompat.app.AppCompatActivity;

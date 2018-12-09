@@ -16,9 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chubby.notsochubby.Models.Adapters.NewsAdapter;
-import com.chubby.notsochubby.Models.Entities.NewsAndCategory;
-import com.chubby.notsochubby.ViewModels.NewsViewModel;
+import com.chubby.notsochubby.models.adapters.NewsAdapter;
+import com.chubby.notsochubby.models.entities.NewsAndCategory;
+import com.chubby.notsochubby.viewmodels.NewsViewModel;
 
 import java.util.List;
 
