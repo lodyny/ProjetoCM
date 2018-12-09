@@ -11,8 +11,8 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 
-import com.chubby.notsochubby.Models.Adapters.CalendarAdapter;
-import com.chubby.notsochubby.Models.Entities.CalendarEvents;
+import com.chubby.notsochubby.models.adapters.CalendarAdapter;
+import com.chubby.notsochubby.models.entities.CalendarEvents;
 
 import org.threeten.bp.Instant;
 import org.threeten.bp.LocalDate;
@@ -33,6 +33,10 @@ public class CalendarFragment extends Fragment {
     private RecyclerView recyclerView;
     private TextView textViewCurrDate;
     private TextView textViewDayOfWeek;
+
+
+    public static CalendarFragment newInstance(){return new CalendarFragment();}
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

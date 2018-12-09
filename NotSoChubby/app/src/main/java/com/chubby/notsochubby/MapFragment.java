@@ -1,8 +1,6 @@
 package com.chubby.notsochubby;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -13,15 +11,13 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chubby.notsochubby.Models.Entities.NewsAndCategory;
-import com.chubby.notsochubby.Models.Entities.SpotAndCategory;
-import com.chubby.notsochubby.Models.Utils.MetricsUtils;
-import com.chubby.notsochubby.ViewModels.MapViewModel;
+import com.chubby.notsochubby.models.entities.SpotAndCategory;
+import com.chubby.notsochubby.models.utils.MetricsUtils;
+import com.chubby.notsochubby.viewmodels.MapViewModel;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;

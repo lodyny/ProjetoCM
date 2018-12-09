@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chubby.notsochubby.Models.Adapters.ExerciseAdapter;
-import com.chubby.notsochubby.Models.Exercise;
+import com.chubby.notsochubby.models.adapters.ExerciseAdapter;
+import com.chubby.notsochubby.models.Exercise;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,8 +21,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import static java.security.AccessController.getContext;
 
 
 public class ExerciseFragment extends Fragment {

@@ -1,6 +1,5 @@
 package com.chubby.notsochubby;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,7 +12,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener{
@@ -59,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(itemId == R.id.nav_drawer_exercise || itemId == R.id.navigation_exercise){
             bottomNavigation.getMenu().findItem(R.id.navigation_exercise).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_exercise).setChecked(true);
-            return true;
+            fragment = GestorExercicioFragment.newInstance();
         } else if(itemId == R.id.navigation_diet || itemId == R.id.nav_drawer_diet){
             bottomNavigation.getMenu().findItem(R.id.navigation_diet).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_diet).setChecked(true);
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(itemId == R.id.nav_drawer_calendar || itemId ==  R.id.navigation_calendar){
             bottomNavigation.getMenu().findItem(R.id.navigation_calendar).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_calendar).setChecked(true);
-            return true;
+            fragment = CalendarFragment.newInstance();
         } else if(itemId == R.id.nav_drawer_map || itemId == R.id.navigation_map){
             bottomNavigation.getMenu().findItem(R.id.navigation_map).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_map).setChecked(true);
