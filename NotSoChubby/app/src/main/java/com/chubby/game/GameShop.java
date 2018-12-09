@@ -13,6 +13,7 @@ public class GameShop extends AppCompatActivity {
     private ImageButton returnButton;
 
     private ImageButton lifeButton;
+    private ImageButton potionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class GameShop extends AppCompatActivity {
     }
 
     private void setUpButtons(){
-returnButton = findViewById(R.id.exitShopButton);
+        returnButton = findViewById(R.id.exitShopButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +37,15 @@ returnButton = findViewById(R.id.exitShopButton);
             @Override
             public void onClick(View v) {
                 setResult(1);
+                finish();
+            }
+        });
+
+        potionButton = findViewById(R.id.potionButton);
+        potionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(2);
                 finish();
             }
         });

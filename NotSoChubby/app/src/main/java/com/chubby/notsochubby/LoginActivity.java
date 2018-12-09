@@ -11,6 +11,7 @@ import android.os.StrictMode;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.chubby.notsochubby.Models.ChubbyApplication;
@@ -43,6 +44,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Button noacc_button;
 
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
@@ -121,6 +123,14 @@ public class LoginActivity extends AppCompatActivity {
                 displayToast(exception.getMessage());
             }
         });
+
+        noacc_button = (Button)findViewById(R.id.noacc_button);
+        noacc_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMainActivity(null, null);
+            }
+        });
     }
 
     private void displayToast(String msg){
@@ -170,7 +180,8 @@ public class LoginActivity extends AppCompatActivity {
     private void goToMainActivity(String name, String email){
         ChubbyApplication ca = (ChubbyApplication) getApplication();
         ca.setAuthentication(name, email);
-        displayToast(getResources().getString(R.string.auth_welcome) + " " + name);
+        if(name != null)
+            displayToast(getResources().getString(R.string.auth_welcome) + " " + name);
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

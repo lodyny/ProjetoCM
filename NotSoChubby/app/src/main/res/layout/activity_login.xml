@@ -61,4 +61,14 @@
         app:layout_constraintStart_toStartOf="@+id/sign_in_button"
         app:layout_constraintTop_toBottomOf="@+id/sign_in_button" />
 
+    <Button
+        android:id="@+id/noacc_button"
+        android:layout_width="255dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:text="Continue without account"
+        app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
+        app:layout_constraintStart_toStartOf="@+id/sign_in_button"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

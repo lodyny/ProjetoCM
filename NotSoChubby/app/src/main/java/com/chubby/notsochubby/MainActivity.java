@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout = findViewById(R.id.drawer_layout);
         drawerNavigation = findViewById(R.id.nav_view);
         drawerNavigation.setNavigationItemSelectedListener(this);
-        TextView userNameView = (TextView)findViewById(R.id.drawer_id);
-        userNameView.setText(((ChubbyApplication) getApplication()).getUsername());
     }
 
     @Override
