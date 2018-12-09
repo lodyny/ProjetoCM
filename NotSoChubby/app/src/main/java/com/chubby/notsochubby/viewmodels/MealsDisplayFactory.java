@@ -1,4 +1,4 @@
-package com.chubby.notsochubby.ViewModels;
+package com.chubby.notsochubby.viewmodels;
 
 import android.app.Application;
 

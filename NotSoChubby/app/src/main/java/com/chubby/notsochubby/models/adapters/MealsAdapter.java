@@ -1,4 +1,4 @@
-package com.chubby.notsochubby.Models.Adapters;
+package com.chubby.notsochubby.models.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.chubby.notsochubby.Models.Entities.Meal;
-import com.chubby.notsochubby.Models.GlideApp;
+import com.chubby.notsochubby.models.entities.Meal;
+import com.chubby.notsochubby.models.GlideApp;
 import com.chubby.notsochubby.R;
 
 import androidx.annotation.NonNull;

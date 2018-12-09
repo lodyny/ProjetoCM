@@ -1,4 +1,4 @@
-package com.chubby.notsochubby.Models.Entities;
+package com.chubby.notsochubby.models.entities;
 
 import com.google.gson.annotations.Expose;
 

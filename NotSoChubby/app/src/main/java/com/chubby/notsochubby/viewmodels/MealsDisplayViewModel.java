@@ -1,11 +1,11 @@
 
-package com.chubby.notsochubby.ViewModels;
+package com.chubby.notsochubby.viewmodels;
 
         import android.app.Application;
 
-        import com.chubby.notsochubby.Models.ChubbyDatabase;
-        import com.chubby.notsochubby.Models.Dao.MealsDao;
-        import com.chubby.notsochubby.Models.Entities.Meal;
+        import com.chubby.notsochubby.models.ChubbyDatabase;
+        import com.chubby.notsochubby.models.dao.MealsDao;
+        import com.chubby.notsochubby.models.entities.Meal;
 
         import androidx.annotation.NonNull;
         import androidx.lifecycle.AndroidViewModel;

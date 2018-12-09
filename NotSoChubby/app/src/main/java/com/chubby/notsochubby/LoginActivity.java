@@ -13,7 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.chubby.notsochubby.Models.ChubbyApplication;
+import com.chubby.notsochubby.models.ChubbyApplication;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

@@ -1,8 +1,8 @@
-package com.chubby.notsochubby.Models.Dao;
+package com.chubby.notsochubby.models.dao;
 
-import com.chubby.notsochubby.Models.Entities.Meal;
-import com.chubby.notsochubby.Models.Entities.News;
-import com.chubby.notsochubby.Models.Entities.NewsAndCategory;
+import com.chubby.notsochubby.models.entities.Meal;
+import com.chubby.notsochubby.models.entities.News;
+import com.chubby.notsochubby.models.entities.NewsAndCategory;
 
 import java.util.List;
 

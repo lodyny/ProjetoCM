@@ -1,10 +1,11 @@
 package com.chubby.notsochubby;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.chubby.game.GameActivity;
-import com.chubby.notsochubby.Models.ChubbyApplication;
+import com.chubby.notsochubby.models.ChubbyApplication;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;

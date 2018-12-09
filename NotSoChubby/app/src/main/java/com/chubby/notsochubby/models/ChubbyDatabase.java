@@ -3,10 +3,12 @@ package com.chubby.notsochubby.models;
 
 import android.content.Context;
 
+import com.chubby.notsochubby.models.dao.MealsDao;
 import com.chubby.notsochubby.models.dao.NewsCategoryDao;
 import com.chubby.notsochubby.models.dao.NewsDao;
 import com.chubby.notsochubby.models.dao.SpotCategoryDao;
 import com.chubby.notsochubby.models.dao.SpotDao;
+import com.chubby.notsochubby.models.entities.Meal;
 import com.chubby.notsochubby.models.entities.News;
 import com.chubby.notsochubby.models.entities.NewsCategory;
 import com.chubby.notsochubby.models.entities.Spot;
@@ -18,7 +20,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-@Database(entities = {Spot.class, News.class, NewsCategory.class, SpotCategory.class}, version = 1, exportSchema = false)
+@Database(entities = {Spot.class, News.class, NewsCategory.class, SpotCategory.class, Meal.class}, version = 2, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class ChubbyDatabase extends RoomDatabase {
 
@@ -29,13 +31,14 @@ public abstract class ChubbyDatabase extends RoomDatabase {
     public abstract NewsCategoryDao newsCategoryDao();
     public abstract SpotDao spotDao();
     public abstract SpotCategoryDao spotCategoryDao();
+    public abstract MealsDao mealsDao();
 
     public static ChubbyDatabase getInstance(Context context) {
         if (instance == null) {
             synchronized (ChubbyDatabase.class) {
                 if (instance == null) {
                     instance = Room.databaseBuilder(context.getApplicationContext(),
-                            ChubbyDatabase.class, DB_NAME).build();
+                            ChubbyDatabase.class, DB_NAME).fallbackToDestructiveMigration().build();
                 }
             }
         }

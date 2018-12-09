@@ -6,11 +6,10 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.chubby.notsochubby.Models.Entities.Meal;
-import com.chubby.notsochubby.Models.GlideApp;
-import com.chubby.notsochubby.ViewModels.MealsDisplayFactory;
-import com.chubby.notsochubby.ViewModels.MealsDisplayViewModel;
+import com.chubby.notsochubby.models.entities.Meal;
+import com.chubby.notsochubby.models.GlideApp;
+import com.chubby.notsochubby.viewmodels.MealsDisplayFactory;
+import com.chubby.notsochubby.viewmodels.MealsDisplayViewModel;
 
 import java.lang.ref.WeakReference;
 

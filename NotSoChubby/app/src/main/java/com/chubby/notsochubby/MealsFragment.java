@@ -22,9 +22,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.chubby.notsochubby.Models.Adapters.MealsAdapter;
-import com.chubby.notsochubby.Models.Entities.Meal;
-import com.chubby.notsochubby.ViewModels.MealsViewModel;
+import com.chubby.notsochubby.models.adapters.MealsAdapter;
+import com.chubby.notsochubby.models.entities.Meal;
+import com.chubby.notsochubby.viewmodels.MealsViewModel;
 
 import java.util.List;
 
