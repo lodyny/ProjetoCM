@@ -3,19 +3,18 @@ package com.chubby.notsochubby;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.Toast;
 
-import com.chubby.notsochubby.Models.ChubbyDatabase;
-import com.chubby.notsochubby.Models.Dao.NewsCategoryDao;
-import com.chubby.notsochubby.Models.Dao.NewsDao;
-import com.chubby.notsochubby.Models.Dao.SpotCategoryDao;
-import com.chubby.notsochubby.Models.Dao.SpotDao;
-import com.chubby.notsochubby.Models.Entities.News;
-import com.chubby.notsochubby.Models.Entities.NewsCategory;
-import com.chubby.notsochubby.Models.Entities.Spot;
-import com.chubby.notsochubby.Models.Entities.SpotCategory;
-import com.chubby.notsochubby.Models.LocalDateTimeConverter;
+import com.chubby.notsochubby.models.ChubbyDatabase;
+import com.chubby.notsochubby.models.dao.NewsCategoryDao;
+import com.chubby.notsochubby.models.dao.NewsDao;
+import com.chubby.notsochubby.models.dao.SpotCategoryDao;
+import com.chubby.notsochubby.models.dao.SpotDao;
+import com.chubby.notsochubby.models.entities.News;
+import com.chubby.notsochubby.models.entities.NewsCategory;
+import com.chubby.notsochubby.models.entities.Spot;
+import com.chubby.notsochubby.models.entities.SpotCategory;
+import com.chubby.notsochubby.models.LocalDateTimeConverter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -30,13 +29,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class SplashScreen extends AppCompatActivity {
 

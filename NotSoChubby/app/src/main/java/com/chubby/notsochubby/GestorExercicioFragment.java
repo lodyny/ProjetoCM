@@ -23,6 +23,8 @@ public class GestorExercicioFragment extends Fragment {
     private View v;
     private Fragment fragment;
 
+    public static GestorExercicioFragment newInstance(){return new GestorExercicioFragment();}
+
     private View.OnClickListener buttonExerciseClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
