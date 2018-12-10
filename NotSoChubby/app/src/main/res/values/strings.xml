@@ -111,7 +111,7 @@
     <string name="exercise_new">Novo</string>
     <string name="calendar_personal_trainer">Personal Trainer</string>
     <string name="calendar_monday">Seg</string>
-    <string name="calendar_tuesday">Terç</string>
+    <string name="calendar_tuesday">Ter</string>
     <string name="calendar_wednesday">Qua</string>
     <string name="calendar_thursday">Qui</string>
     <string name="calendar_friday">Sex</string>
@@ -127,7 +127,6 @@
     <!--<string name="exercise_shoulder_"-->
     <string name="get_directions">Obter Direcções</string>
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
-    <string name="title_fragment_news_display">Notícias</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

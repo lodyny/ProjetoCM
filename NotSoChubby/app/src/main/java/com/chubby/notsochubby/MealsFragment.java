@@ -97,10 +97,6 @@ public class MealsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         MealsViewModel mealsViewModel = ViewModelProviders.of(this).get(MealsViewModel.class);
 
-
-        Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle("Dieta");
-
         decreaseCaloriesBtn = v.findViewById(R.id.fgm_decreaseButton);
         decreaseCaloriesBtn.setOnClickListener(decreaseCaloriesAct);
 
