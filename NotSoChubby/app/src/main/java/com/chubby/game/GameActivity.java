@@ -126,6 +126,7 @@ public class GameActivity extends AppCompatActivity {
         SetupButtons();
         textFinalScore.setText("Distancia Percorrida: " + finishedMeters);
         textFinalScore.setVisibility(View.VISIBLE);
+        gameBoost = 0;
     }
 
     private void SetupButtons(){
