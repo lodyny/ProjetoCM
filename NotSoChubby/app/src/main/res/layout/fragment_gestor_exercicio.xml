@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <Button
         android:id="@+id/buttonExercise"
@@ -12,23 +17,26 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:background="@color/colorPrimary"
         android:text="@string/generate"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/divider9" />
 
     <TextView
         android:id="@+id/textViewAbs"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_abdominal"
         android:textSize="18sp"
@@ -39,12 +47,12 @@
 
     <TextView
         android:id="@+id/textViewBack"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_back"
         android:textSize="18sp"
@@ -55,12 +63,12 @@
 
     <TextView
         android:id="@+id/textViewBiceps"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_biceps"
         android:textSize="18sp"
@@ -71,12 +79,12 @@
 
     <TextView
         android:id="@+id/textViewChest"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_chest"
         android:textSize="18sp"
@@ -87,12 +95,12 @@
 
     <TextView
         android:id="@+id/textViewShoulder"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_shoulder"
         android:textSize="18sp"
@@ -103,12 +111,12 @@
 
     <TextView
         android:id="@+id/textViewTriceps"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/buttonExercise"
         android:layout_alignParentTop="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="39dp"
         android:layout_marginEnd="8dp"
         android:text="@string/exercise_triceps"
         android:textSize="18sp"
@@ -123,11 +131,11 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewAbs"
         android:layout_alignEnd="@+id/buttonExercise"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/checkBoxBack"
@@ -135,11 +143,11 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/checkBoxAbs"
         android:layout_alignTop="@+id/textViewBack"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxAbs"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAbs" />
 
     <CheckBox
         android:id="@+id/checkBoxBiceps"
@@ -147,11 +155,11 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/checkBoxAbs"
         android:layout_alignTop="@+id/textViewBiceps"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxBack"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxBack" />
 
     <CheckBox
         android:id="@+id/checkBoxChest"
@@ -159,11 +167,11 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewChest"
         android:layout_alignEnd="@+id/buttonExercise"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxBiceps"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxBiceps" />
 
     <CheckBox
         android:id="@+id/checkBoxShoulder"
@@ -171,11 +179,11 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewShoulder"
         android:layout_alignEnd="@+id/buttonExercise"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxChest"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxChest" />
 
     <CheckBox
         android:id="@+id/checkBoxTriceps"
@@ -184,11 +192,11 @@
         android:layout_alignStart="@+id/checkBoxAbs"
         android:layout_alignTop="@+id/textViewTriceps"
         android:layout_alignEnd="@+id/buttonExercise"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="48dp"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxShoulder"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxShoulder" />
 
     <View
         android:id="@+id/divider4"
@@ -282,3 +290,5 @@
         android:buttonTint="@color/colorPrimaryDark"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
