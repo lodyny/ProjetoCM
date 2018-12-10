@@ -1,7 +1,10 @@
 package com.chubby.game;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.chubby.notsochubby.R;
+import com.chubby.notsochubby.ShakeSensor;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -31,6 +35,10 @@ import java.util.TimerTask;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GameActivity extends AppCompatActivity {
+
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeSensor mShakeDetector;
 
     // Views
     private GameView gameView;
@@ -56,6 +64,32 @@ public class GameActivity extends AppCompatActivity {
 
         SetupButtons();
         textFinalScore.setVisibility(View.INVISIBLE);
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeSensor();
+        mShakeDetector.setOnShakeListener(new ShakeSensor.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                if(gameView != null){
+                    gameView.jump();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
     @Override

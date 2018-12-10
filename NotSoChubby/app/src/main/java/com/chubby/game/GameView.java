@@ -189,4 +189,9 @@ public class GameView extends View {
     public int GetDistance(){
         return distance;
     }
+
+    public void jump() {
+        if(!touch)
+            touch = true;
+    }
 }
