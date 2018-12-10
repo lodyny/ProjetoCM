@@ -73,7 +73,28 @@ public class LoginActivity extends AppCompatActivity {
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
         if(isLoggedIn){
-            LoginManager.getInstance().logOut();
+            Profile profile = Profile.getCurrentProfile();
+            GraphRequest request = GraphRequest.newMeRequest(
+                    accessToken ,
+                    new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(JSONObject object, GraphResponse response) {
+                            try {
+                                email = object.getString("email");
+                            } catch (JSONException e) {
+                                displayToast(e.getMessage());
+                            }
+                        }
+                    });
+
+            Bundle parameters = new Bundle();
+            parameters.putString("fields", "email");
+            request.setParameters(parameters);
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            request.executeAndWait();
+            goToMainActivity(profile.getName(), email);
+
         }
 
         signInButton = findViewById(R.id.sign_in_button);
