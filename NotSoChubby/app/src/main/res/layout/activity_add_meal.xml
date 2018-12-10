@@ -10,11 +10,15 @@
         android:id="@+id/fgm_runButton"
         android:layout_width="305dp"
         android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#019ae8"
         android:text="@string/fgm_add_meals_btn"
         android:textColor="@color/design_default_color_background"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="444dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"

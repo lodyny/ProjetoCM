@@ -123,5 +123,7 @@
     <string name="calendar_add_end_date">Adicionar Data Fim</string>
     <string name="get_directions">Obter Direcções</string>
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
+    <string name="fgm_add_meals_btn">Adicionar</string>
+    <string name="fgm_add_meals_photo">Adicionar Foto</string>
 
 </resources>
