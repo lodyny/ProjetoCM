@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".models.ChubbyApplication"
@@ -40,28 +42,28 @@
             android:name="com.chubby.game.GameShop"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyADfmrgxf4GY2GbMVBrtxDsOLGRUUR0hTE"/>
+            android:value="AIzaSyADfmrgxf4GY2GbMVBrtxDsOLGRUUR0hTE" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-		<activity
+        <activity
             android:name=".NewsActivity"
             android:label="@string/title_activity_news_display"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.chubby.notsochubby.MealActivity"
+            android:name=".MealActivity"
             android:label="@string/title_activity_meal_display"
             android:theme="@style/AppTheme" />
         <activity
@@ -69,10 +71,24 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddMealActivity"></activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
     </application>
+
 </manifest>

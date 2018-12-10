@@ -64,7 +64,7 @@ public class MealActivity extends AppCompatActivity {
             }
         });
     }
-
+    // carregar em botão na toolbar e mudar actividade para AddMealActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
