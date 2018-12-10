@@ -53,6 +53,8 @@
     <string name="fgm_meals_snack">Lanche</string>
     <string name="fgm_meals_dinner">Jantar</string>
     <string name="fgm_meals_supper">Snack</string>
+    <string name="fgm_add_meals_btn">Adicionar</string>
+    <string name="fgm_add_meals_photo">Adicionar Foto</string>
 
     <string name="exercise_hipopressive_abdominal">Hipopressive Abdominal</string>
     <string name="exercise_side_board">Side Board</string>
@@ -121,7 +123,7 @@
     <string name="calendar_end_date">Fim</string>
     <string name="calendar_add_start_date">Adicionar Data de início</string>
     <string name="calendar_add_end_date">Adicionar Data de fim</string>
-    
+
     <!--<string name="exercise_shoulder_"-->
     <string name="get_directions">Obter Direcções</string>
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
