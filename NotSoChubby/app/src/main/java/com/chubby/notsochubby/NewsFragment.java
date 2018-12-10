@@ -40,8 +40,6 @@ public class NewsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_news, container, false);
-        Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.title_fragment_news_display));
         RecyclerView recyclerView = v.findViewById(R.id.rvNews);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setHasFixedSize(true);

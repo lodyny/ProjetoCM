@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private BottomNavigationView bottomNavigation;
     private NavigationView drawerNavigation;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void setupUI(){
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View v = drawerNavigation.getHeaderView(0);
         TextView userNameView = v.findViewById(R.id.drawer_id);
         userNameView.setText(((ChubbyApplication) getApplication()).getUsername());
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, NewsFragment.newInstance());
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -67,27 +71,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bottomNavigation.getMenu().findItem(R.id.navigation_exercise).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_exercise).setChecked(true);
             fragment = GestorExercicioFragment.newInstance();
+            toolbar.setTitle(getString(R.string.nav_exercice));
         } else if(itemId == R.id.navigation_diet || itemId == R.id.nav_drawer_diet){
             bottomNavigation.getMenu().findItem(R.id.navigation_diet).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_diet).setChecked(true);
             fragment = MealsFragment.newInstance();
+            toolbar.setTitle(getString(R.string.nav_diet));
         } else if(itemId == R.id.nav_drawer_calendar || itemId ==  R.id.navigation_calendar){
             bottomNavigation.getMenu().findItem(R.id.navigation_calendar).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_calendar).setChecked(true);
             fragment = CalendarFragment.newInstance();
+            toolbar.setTitle(getString(R.string.nav_calendar));
+
         } else if(itemId == R.id.nav_drawer_map || itemId == R.id.navigation_map){
             bottomNavigation.getMenu().findItem(R.id.navigation_map).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_map).setChecked(true);
             fragment = MapFragment.newInstance();
+            toolbar.setTitle(getString(R.string.nav_map));
         } else if(itemId == R.id.nav_drawer_game || itemId == R.id.navigation_game){
-            //bottomNavigation.getMenu().findItem(R.id.navigation_game).setChecked(true);
-            //drawerNavigation.getMenu().findItem(R.id.nav_drawer_game).setChecked(true);
             Intent intent = new Intent(MainActivity.this, GameActivity.class);
             startActivity(intent);
-            return true;
+            return false;
         } else if(itemId == R.id.nav_drawer_news) {
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_news).setChecked(true);
             fragment = NewsFragment.newInstance();
+            toolbar.setTitle(getString(R.string.nav_news));
         } else if(itemId == R.id.nav_drawer_profile) {
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_profile).setChecked(true);
             return true;
