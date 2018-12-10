@@ -3,25 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp" />
+    android:layout_height="match_parent"
+    tools:context=".AddMealActivity">
 
     <Button
         android:id="@+id/fgm_runButton"
         android:layout_width="305dp"
         android:layout_height="59dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
         android:backgroundTint="#019ae8"
         android:text="@string/fgm_add_meals_btn"
         android:textColor="@color/design_default_color_background"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view" />
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="444dp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -67,7 +60,7 @@
     <EditText
         android:id="@+id/editText3"
         android:layout_width="324dp"
-        android:layout_height="165dp"
+        android:layout_height="118dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -78,15 +71,28 @@
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/fgm_add_meals_photo"
         android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/fgm_add_meals_photo"
+        app:layout_constraintBottom_toTopOf="@+id/fgm_runButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/add_meal_pict_preview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="375dp" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        tools:srcCompat="@tools:sample/avatars[0]" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
