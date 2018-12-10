@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(itemId == R.id.nav_drawer_config) {
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_config).setChecked(true);
             return true;
+        } else if(itemId == R.id.nav_drawer_exit){
+            finish();
+            return true;
         } else {
             throw new RuntimeException("Must check all menu items.");
         }
