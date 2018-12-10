@@ -152,6 +152,8 @@ public class SplashScreen extends AppCompatActivity {
                                 if(response.isSuccessful() && response.body() != null) {
                                     ChubbyDatabase db = ChubbyDatabase.getInstance(activityReference.get());
                                     SpotDao spotDao = db.spotDao();
+                                    List<Spot> spots = gson.fromJson(response.body().string(), new TypeToken<List<Spot>>() {}.getType());
+                                    spotDao.insert(spots);
                                 } else{
                                     success.set(false);
                                 }
