@@ -123,5 +123,6 @@
     <string name="calendar_add_end_date">Adicionar Data Fim</string>
     <string name="get_directions">Obter Direcções</string>
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
+    <string name="auth_noacc">CONTINUAR SEM CONTA</string>
 
 </resources>

@@ -68,7 +68,7 @@
         android:layout_width="257dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:text="Continue without account"
+        android:text="@string/auth_noacc"
         app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
         app:layout_constraintStart_toStartOf="@+id/sign_in_button"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
