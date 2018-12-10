@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(itemId == R.id.navigation_diet || itemId == R.id.nav_drawer_diet){
             bottomNavigation.getMenu().findItem(R.id.navigation_diet).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_diet).setChecked(true);
-            return true;
+            fragment = MealsFragment.newInstance();
         } else if(itemId == R.id.nav_drawer_calendar || itemId ==  R.id.navigation_calendar){
             bottomNavigation.getMenu().findItem(R.id.navigation_calendar).setChecked(true);
             drawerNavigation.getMenu().findItem(R.id.nav_drawer_calendar).setChecked(true);
