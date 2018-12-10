@@ -69,6 +69,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         mapViewModel.getSpots().observe(this, new Observer<List<SpotAndCategory>>() {
             @Override
             public void onChanged(List<SpotAndCategory> spots) {
+                if (spots.size() == 0) return;
                 LatLngBounds.Builder builder = new LatLngBounds.Builder();
                 for(SpotAndCategory spot : spots){
                     LatLng latLng = new LatLng(spot.spot.getGeolat(), spot.spot.getGeolon());
