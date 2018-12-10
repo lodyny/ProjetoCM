@@ -200,94 +200,94 @@
 
     <View
         android:id="@+id/divider4"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewAbs"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAbs"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewAbs" />
 
     <View
         android:id="@+id/divider5"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewBack"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBack"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewBack" />
 
     <View
         android:id="@+id/divider6"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewBack"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewBiceps"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewBiceps" />
 
     <View
         android:id="@+id/divider7"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewBack"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewChest"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewChest" />
 
     <View
         android:id="@+id/divider8"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewBack"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewShoulder"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewShoulder" />
 
     <View
         android:id="@+id/divider9"
-        android:layout_width="315dp"
+        android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_alignStart="@+id/textViewBack"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="32dp"
         android:background="?android:attr/listDivider"
+        android:buttonTint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTriceps"
-        android:buttonTint="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTriceps" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
