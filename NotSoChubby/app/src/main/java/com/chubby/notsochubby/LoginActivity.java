@@ -93,18 +93,22 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         login_button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
+            public void onSuccess(final LoginResult loginResult) {
                 if(Profile.getCurrentProfile() == null) {
                     mProfileTracker = new ProfileTracker() {
                         @Override
                         protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
                             profile = currentProfile;
+                            profileSuccess(loginResult);
                         }
                     };
                 }else{
                     profile = Profile.getCurrentProfile();
+                    profileSuccess(loginResult);
                 }
+            }
 
+            private void profileSuccess(LoginResult loginResult) {
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken() ,
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -145,6 +149,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void displayToast(String msg){
         Context context = getApplicationContext();
