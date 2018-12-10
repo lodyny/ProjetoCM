@@ -53,7 +53,8 @@
     <string name="fgm_meals_snack">Snack</string>
     <string name="fgm_meals_dinner">Dinner</string>
     <string name="fgm_meals_supper">Supper</string>
-
+    <string name="fgm_add_meals_btn">Add</string>
+    <string name="fgm_add_meals_photo">Add Photo</string>
     <string name="exercise_hipopressive_abdominal">Hypopressive Abdominal</string>
     <string name="exercise_side_board">Side Board</string>
     <string name="exercise_frontal_board">Frontal Board</string>
