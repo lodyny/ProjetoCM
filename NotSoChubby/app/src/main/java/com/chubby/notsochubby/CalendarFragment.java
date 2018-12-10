@@ -18,6 +18,7 @@ import org.threeten.bp.Instant;
 import org.threeten.bp.LocalDate;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,13 +45,10 @@ public class CalendarFragment extends Fragment {
         setHasOptionsMenu(true);
         recyclerView = v.findViewById(R.id.recyclerViewCallendar);
         calendarView = v.findViewById(R.id.calendarView);
-        Instant instant = Instant.now();
         textViewCurrDate = (TextView)v.findViewById(R.id.textViewCurrentDay);
-        textViewCurrDate.setText(LocalDate.now().getDayOfMonth()+"");
+        textViewCurrDate.setText(String.format(Locale.getDefault(), "%d",LocalDate.now().getDayOfMonth()));
         textViewDayOfWeek = (TextView)v.findViewById(R.id.textViewDayOfWeek);
         textViewDayOfWeek.setText(getDayOfWeek());
-        long timeStampMillis = instant.toEpochMilli();
-        calendarView.setDate(timeStampMillis);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
