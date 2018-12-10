@@ -124,5 +124,6 @@
     <string name="calendar_add_end_date">Add End Date</string>
     <string name="get_directions">Get Directions</string>
     <string name="no_navigation_app">There is no application installed for navigation.</string>
+    <string name="auth_noacc">CONTINUE WITHOUT ACCOUNT</string>
 
 </resources>

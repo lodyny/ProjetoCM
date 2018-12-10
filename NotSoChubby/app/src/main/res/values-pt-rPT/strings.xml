@@ -125,5 +125,6 @@
     <string name="no_navigation_app">Não existe uma aplicação de navegação instalada.</string>
     <string name="fgm_add_meals_btn">Adicionar</string>
     <string name="fgm_add_meals_photo">Adicionar Foto</string>
+    <string name="auth_noacc">CONTINUAR SEM CONTA</string>
 
 </resources>
