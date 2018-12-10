@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +57,8 @@ public class NewsActivity extends AppCompatActivity {
                     } else {
                         tvHtmlText.setText(Html.fromHtml(news.getNews().getHtmlText()));
                     }
+                    tvHtmlText.setMovementMethod(LinkMovementMethod.getInstance());
+
                 } else {
                     Toast.makeText(activityReference.get(), "Não foi possível carregar a notícia.", Toast.LENGTH_SHORT).show();
                     finish();
