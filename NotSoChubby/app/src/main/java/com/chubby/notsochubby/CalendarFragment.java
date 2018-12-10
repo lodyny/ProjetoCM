@@ -40,7 +40,7 @@ public class CalendarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.fragment_calendar,null);
+        v = inflater.inflate(R.layout.fragment_calendar, container, false);
         setHasOptionsMenu(true);
         recyclerView = v.findViewById(R.id.recyclerViewCallendar);
         calendarView = v.findViewById(R.id.calendarView);
