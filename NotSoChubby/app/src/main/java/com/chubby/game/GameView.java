@@ -21,6 +21,7 @@ public class GameView extends View {
     private boolean touch = false;
     private boolean jumping = false;
     private int boost;
+    private int lifes;
 
     private int distance;
     private Paint score = new Paint();
@@ -28,6 +29,7 @@ public class GameView extends View {
     private Bitmap dog[] = new Bitmap[2];
     private int dogX = 10, dogY, dogJump, minDogY, maxDogY;
     private MediaPlayer dogJumpSound;
+    private MediaPlayer dogHurtSound;
 
     private Bitmap bird;
     private int birdX, birdY, birdSpeed = 20;
@@ -57,6 +59,7 @@ public class GameView extends View {
         dog[0] = BitmapFactory.decodeResource(getResources(), R.drawable.doggo);
         dog[1] = BitmapFactory.decodeResource(getResources(), R.drawable.doggo_jump);
         dogJumpSound = MediaPlayer.create(context, R.raw.dogjump);
+        dogHurtSound = MediaPlayer.create(context, R.raw.doggohurt);
 
         bird = BitmapFactory.decodeResource(getResources(), R.drawable.bird);
         rock = BitmapFactory.decodeResource(getResources(), R.drawable.rock);
@@ -82,9 +85,10 @@ public class GameView extends View {
         topBackground = Bitmap.createScaledBitmap(topBackground, canvasWidth, topBackground.getHeight(), true);
         bottomBackground = Bitmap.createScaledBitmap(bottomBackground, canvasWidth, bottomBackground.getHeight(), true);
 
-        minDogY = dog[0].getHeight() - 50;
+        minDogY = (boost==2) ? (dog[0].getHeight() - 500) : (dog[0].getHeight() - 50);
         dogY = maxDogY = canvasHeight - dog[0].getHeight() - 50;
         distance = 0;
+        lifes = (boost==1) ? 2 : 1;
     }
 
 
@@ -109,33 +113,34 @@ public class GameView extends View {
         else if (touch && !jumping){
             touch = false;
             if(boost == 2)
-                dogJump = -100;
+                dogJump = -75;
             else
                 dogJump =  -50;
             dogJumpSound.start();
             jumping = true;
-            animationHandler.sendEmptyMessageDelayed(0, 800);
+            animationHandler.sendEmptyMessageDelayed(0, (boost==2) ? 1200 : 800);
         }
 
         birdX = birdX - birdSpeed;
         rockX = rockX - rockSpeed;
 
         if (hitObjectChecker(birdX, birdY)){
-            ((GameActivity) context).EndGame(distance);
-            distance = 0;
-            birdX -= 500;
+            dogHurtSound.start();
+            if(--lifes == 0)
+                ((GameActivity) context).EndGame(distance);
+            birdX = -500;
         }
 
         if (hitObjectChecker(rockX, rockY)){
-            ((GameActivity) context).EndGame(distance);
-            distance = 0;
-            rockX -= 500;
+            dogHurtSound.start();
+            if(--lifes == 0)
+                ((GameActivity) context).EndGame(distance);
+            rockX = -500;
         }
 
         if (birdX < -bird.getWidth()){
             birdX = canvasWidth + bird.getWidth()*2;
             birdX = random((canvasWidth + bird.getWidth()*2), (canvasWidth + bird.getWidth()*2) + 10000);
-            //birdY = (int) Math.floor(Math.random() * (maxDogY - minDogY*2)) + minDogY;
             birdY = random(minDogY, maxDogY - minDogY*2);
             birdSpeed = 20 + (distance/180);
         }
@@ -183,5 +188,10 @@ public class GameView extends View {
 
     public int GetDistance(){
         return distance;
+    }
+
+    public void jump() {
+        if(!touch)
+            touch = true;
     }
 }

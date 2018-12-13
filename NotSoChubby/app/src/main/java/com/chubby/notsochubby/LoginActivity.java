@@ -22,6 +22,7 @@ import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -57,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
 
     CallbackManager callbackManager;
     LoginButton login_button;
+    ProfileTracker mProfileTracker;
+    Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +93,22 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         login_button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-                Profile profile = Profile.getCurrentProfile();
+            public void onSuccess(final LoginResult loginResult) {
+                if(Profile.getCurrentProfile() == null) {
+                    mProfileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+                            profile = currentProfile;
+                            profileSuccess(loginResult);
+                        }
+                    };
+                }else{
+                    profile = Profile.getCurrentProfile();
+                    profileSuccess(loginResult);
+                }
+            }
+
+            private void profileSuccess(LoginResult loginResult) {
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken() ,
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -132,6 +149,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void displayToast(String msg){
         Context context = getApplicationContext();
