@@ -32,11 +32,9 @@ export default class Details extends React.Component {
         });
       }
     }
-    let allData = this.props.navigation.getParam("allData", null);
     this.state = {
       basic: true,
       listViewData: inner,
-      allData: allData,
       actualDate: events ? events.date : null
     };
   }

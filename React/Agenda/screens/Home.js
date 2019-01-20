@@ -104,9 +104,11 @@ export default class Home extends Component {
           minDate={new Date()}
           onDayPress={day => {
             this.props.navigation.push("Details", {
-              events: this.state.markedDates[day.dateString],
-              date: day.dateString,
-              allData: this.state.markedDates
+              events:
+                this.state.markedDates !== null
+                  ? this.state.markedDates[day.dateString]
+                  : null,
+              date: day.dateString
             });
           }}
           markedDates={markedDates}
