@@ -69,7 +69,11 @@ export default class Home extends Component {
   }
 
   static navigationOptions = {
-    title: "Agenda"
+    title: "Agenda",
+    headerStyle: {
+      backgroundColor: '#1d71c7',
+    },
+    headerTintColor: '#ffffff'
   };
 
   async getDates() {

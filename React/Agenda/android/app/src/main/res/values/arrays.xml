@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="meal_cats">
+        <item>Pequeno Almoço</item>
+        <item>Almoço</item>
+        <item>Jantar</item>
+        <item>Snack</item>
+    </string-array>
+</resources>

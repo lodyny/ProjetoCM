@@ -41,7 +41,11 @@ export default class Details extends React.Component {
   }
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Data: " + navigation.getParam("date", "")
+      title: "Data: " + navigation.getParam("date", ""),
+      headerStyle: {
+        backgroundColor: '#1d71c7',
+      },
+      headerTintColor: '#ffffff'
     };
   };
 

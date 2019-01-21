@@ -57,7 +57,11 @@ export default class New extends Component {
   }
 
   static navigationOptions = {
-    title: "Novo Evento"
+    title: "Novo Evento",
+    headerStyle: {
+      backgroundColor: '#1d71c7',
+    },
+    headerTintColor: '#ffffff'
   };
 
   async handleSubmit() {
