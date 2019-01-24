@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, AsyncStorage } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  AsyncStorage,
+  Button,
+  BackAndroid
+} from "react-native";
 import { CalendarList, LocaleConfig } from "react-native-calendars";
 import { Container } from "native-base";
+import { HeaderBackButton } from "react-navigation";
 import AddButton from "./../componets/AddButton";
 LocaleConfig.locales["pt-PT"] = {
   monthNames: [
@@ -68,12 +75,23 @@ export default class Home extends Component {
     }
   }
 
-  static navigationOptions = {
-    title: "Agenda",
-    headerStyle: {
-      backgroundColor: '#1d71c7',
-    },
-    headerTintColor: '#ffffff'
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: "Agenda",
+      headerStyle: {
+        backgroundColor: "#1d71c7"
+      },
+      headerTintColor: "#ffffff",
+      headerLeft: (
+        <HeaderBackButton
+          headerTintColor="#ffffff"
+          tintColor="#ffffff"
+          onPress={() => {
+            BackAndroid.exitApp();
+          }}
+        />
+      )
+    };
   };
 
   async getDates() {
